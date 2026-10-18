@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: #03090c; color: #f4f7f6; font-family: 'DM Sans', Arial, sans-serif; }
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.login-page { min-height: 100vh; display: grid; grid-template-columns: 52% 48%; background: #03090c; }
+.login-page { position: fixed; inset: 0; z-index: 100; width: 100vw; height: 100vh; overflow: auto; }
+.intro-panel { position: relative; min-height: 100vh; overflow: hidden; padding: clamp(56px, 8vw, 112px) clamp(36px, 8vw, 120px) 48px; display: flex; flex-direction: column; justify-content: space-between; background: #061118 url('/images/sportlens-stadium.png') center / cover no-repeat; }
+.intro-panel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,10,14,.2), rgba(3,10,14,.12) 35%, rgba(3,10,14,.62) 90%, rgba(3,10,14,.8)); }
+.intro-wash { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,10,14,.14), transparent 70%); z-index: 1; }
+.intro-content, .intro-footer { position: relative; z-index: 2; }
+.brand-lockup { display: flex; align-items: center; gap: 17px; color: #f8faf9; font-family: Outfit, 'DM Sans', sans-serif; font-weight: 700; letter-spacing: -1.7px; }
+.brand-lockup > span { font-size: clamp(42px, 4.5vw, 65px); line-height: 1; }
+.brand-lockup > span > span, .card-brand > span > span { color: #55e49b; }
+.ball-mark { width: 67px; height: 67px; flex: none; }
+.intro-copy { margin: 28px 0 0; color: #d8e0e1; font-size: clamp(20px, 1.85vw, 27px); line-height: 1.42; letter-spacing: -.3px; }
+.feature-grid { display: grid; grid-template-columns: repeat(4, minmax(100px, 1fr)); gap: clamp(18px, 2.6vw, 40px); max-width: 650px; margin-top: clamp(44px, 6vw, 78px); }
+.feature { display: flex; flex-direction: column; align-items: flex-start; color: #f3f7f5; }
+.feature-icon-box { width: 70px; height: 70px; margin-bottom: 12px; border: 1px solid rgba(210,229,229,.38); border-radius: 14px; display: grid; place-items: center; color: #55e49b; background: rgba(1,9,12,.18); }
+.feature-icon { width: 29px; height: 29px; }
+.feature strong { font-size: 15px; font-weight: 600; white-space: nowrap; }
+.feature span { margin-top: 7px; color: #d0d9db; font-size: 13px; line-height: 1.5; }
+.intro-footer { margin: 0; color: rgba(226,235,234,.65); font-size: 12px; letter-spacing: .2px; }
+.form-panel { min-height: 100vh; display: grid; place-items: center; padding: 38px 36px; background: #050c0f; }
+.login-card { width: min(100%, 564px); padding: clamp(38px, 5vw, 53px) clamp(32px, 5vw, 60px) 40px; border: 1px solid rgba(114,133,136,.28); border-radius: 20px; background: linear-gradient(145deg, rgba(24,31,34,.72), rgba(5,13,16,.91)); box-shadow: 0 28px 70px rgba(0,0,0,.24); }
+.card-brand { display: flex; justify-content: center; align-items: center; gap: 9px; font-family: Outfit, 'DM Sans', sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -1.3px; }
+.login-page .card-brand, .login-page .welcome h1, .login-page form label, .login-page .field-heading label, .login-page .social-row button { color: #f4f7f6; }
+.card-brand .ball-mark { width: 64px; height: 64px; }
+.welcome { text-align: center; margin: 21px 0 31px; }
+.welcome h1 { margin: 0; font-family: Outfit, 'DM Sans', sans-serif; font-size: 25px; letter-spacing: -.5px; }
+.welcome p { margin: 7px 0 0; color: #b3bdc0; font-size: 15px; }
+form label, .field-heading label { display: block; margin-bottom: 8px; color: #f1f4f3; font-size: 14px; font-weight: 600; }
+.field-heading { display: flex; justify-content: space-between; align-items: center; margin-top: 21px; }
+.field-heading label { margin-bottom: 8px; }
+a { color: #56e49d; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.input-wrap { position: relative; display: flex; align-items: center; height: 47px; border: 1px solid rgba(126,143,146,.36); border-radius: 10px; background: rgba(28,35,38,.7); transition: border-color .18s, box-shadow .18s; }
+.input-wrap:focus-within { border-color: #55e49b; box-shadow: 0 0 0 3px rgba(85,228,155,.11); }
+.input-wrap > svg { width: 20px; height: 20px; margin: 0 15px; flex: none; fill: none; stroke: #9aa7ab; stroke-width: 1.6; }
+.input-wrap input { min-width: 0; width: 100%; height: 100%; border: 0; outline: 0; background: transparent; color: #f5f8f7; font-size: 14px; }
+.input-wrap input::placeholder { color: #869196; }
+.icon-button { width: 42px; height: 42px; margin-right: 2px; border: 0; background: transparent; color: #9aa7ab; cursor: pointer; display: grid; place-items: center; }
+.icon-button:hover { color: #55e49b; }
+.icon-button svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.error-message { margin: 10px 0 -2px; color: #ff918e; font-size: 13px; }
+.submit-button { width: 100%; height: 51px; margin-top: 25px; border: 0; border-radius: 11px; background: #55df97; color: #03130c; font-size: 15px; font-weight: 700; cursor: pointer; transition: background .18s, transform .18s; }
+.submit-button:hover:not(:disabled) { background: #75edb0; transform: translateY(-1px); }
+.submit-button:disabled { cursor: wait; opacity: .7; }
+.or-divider { display: flex; align-items: center; gap: 17px; margin: 25px 0 22px; color: #869195; font-size: 13px; }
+.or-divider::before, .or-divider::after { content: ''; height: 1px; flex: 1; background: rgba(139,154,156,.28); }
+.social-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
+.social-row button { height: 51px; border: 1px solid rgba(138,152,155,.43); border-radius: 11px; background: rgba(33,40,42,.6); color: #f1f4f3; display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 14px; cursor: pointer; transition: border-color .18s, background .18s; }
+.social-row button:hover { border-color: #55e49b; background: rgba(61,75,73,.55); }
+.google-g { color: #4285f4; font-family: Arial, sans-serif; font-size: 21px; font-weight: 700; }
+.apple { color: #fff; font-size: 19px; line-height: 1; }
+.microsoft { display: grid; grid-template-columns: 9px 9px; grid-template-rows: 9px 9px; gap: 2px; }
+.microsoft i:nth-child(1) { background: #f25022; } .microsoft i:nth-child(2) { background: #7fba00; } .microsoft i:nth-child(3) { background: #00a4ef; } .microsoft i:nth-child(4) { background: #ffb900; }
+.signup { margin: 39px 0 0; text-align: center; color: #bcc5c7; font-size: 14px; }
+.signup a { margin-left: 6px; font-weight: 600; }
+.recovery-card { max-width: 564px; }
+.recovery-link { display: grid; place-items: center; text-decoration: none; }
+.recovery-link:hover { text-decoration: none; }
+.recovery-back { margin-top: 24px; }
+.recovery-label { margin-top: 21px; }
+button:focus-visible, a:focus-visible { outline: 2px solid #55e49b; outline-offset: 3px; }
+@media (max-width: 980px) { .login-page { grid-template-columns: 1fr; } .intro-panel { min-height: 500px; padding: 52px clamp(28px, 8vw, 80px) 36px; } .intro-footer { display: none; } .form-panel { min-height: auto; padding: 34px 24px 60px; } }
+@media (max-width: 560px) { .intro-panel { min-height: 390px; padding: 34px 24px 32px; } .brand-lockup > span { font-size: 38px; } .brand-lockup .ball-mark { width: 52px; height: 52px; } .intro-copy { margin-top: 20px; font-size: 17px; } .desktop-break { display: none; } .feature-grid { gap: 10px; margin-top: 29px; } .feature-icon-box { width: 52px; height: 52px; border-radius: 11px; } .feature-icon { width: 23px; height: 23px; } .feature strong { font-size: 11px; } .feature span { display: none; } .login-card { padding: 34px 22px 30px; border-radius: 16px; } .card-brand { font-size: 29px; } .card-brand .ball-mark { width: 52px; height: 52px; } .social-row { gap: 7px; } .social-row button { gap: 6px; font-size: 12px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+
+/* Payload wraps custom admin views in a narrow login template. The branded
+   screen owns the viewport, so the host layout must not constrain it. */
+.template-minimal:has(.login-page), .template-minimal:has(.login-page) .template-minimal__wrap, .login:has(.login-page) { width: 100% !important; max-width: none !important; min-height: 100vh !important; margin: 0 !important; padding: 0 !important; }

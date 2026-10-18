@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: sportlens-postgres
+    profiles: ['local']
+    environment:
+      POSTGRES_DB: sportlens
+      POSTGRES_USER: sportlens
+      POSTGRES_PASSWORD: sportlens
+    ports: ['5433:5432']
+    volumes: [sportlens-postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U sportlens -d sportlens']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  redis:
+    image: redis:7-alpine
+    container_name: sportlens-redis
+    profiles: ['local']
+    ports: ['6380:6379']
+    volumes: [sportlens-redis-data:/data]
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: sportlens-mailhog
+    ports: ['1025:1025', '8025:8025']
+    profiles: ['dev']
+  minio:
+    image: minio/minio:latest
+    container_name: sportlens-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports: ['9000:9000', '9001:9001']
+    volumes: [sportlens-minio-data:/data]
+    profiles: ['dev']
+  minio-init:
+    image: minio/mc:latest
+    container_name: sportlens-minio-init
+    depends_on:
+      - minio
+    entrypoint: ['/bin/sh', '-c']
+    command:
+      [
+        'until mc alias set local http://minio:9000 minioadmin minioadmin; do sleep 1; done; mc mb --ignore-existing local/sportlens; mc anonymous set download local/sportlens',
+      ]
+    profiles: ['dev']
+volumes:
+  sportlens-postgres-data:
+  sportlens-redis-data:
+  sportlens-minio-data:

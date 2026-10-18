@@ -1,0 +1,34 @@
+{
+  "name": "sportlens",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Football data, fixtures, standings and statistics through one platform.",
+  "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,mjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,json,md,yml,yaml}\"",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "seed": "npm run seed --workspace @sportlens/cms"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^10.0.1",
+    "prettier": "^3.4.2",
+    "sass": "^1.77.4",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.20.0"
+  }
+}
